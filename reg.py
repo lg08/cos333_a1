@@ -23,6 +23,11 @@ def main(argv):
         help='show only those classes whose course title contains title')
     args = parser.parse_args()
 
+    print(args.d[0])
+    print(vars(args)['d'][0])
+
+    print(args)
+
     if not path.isfile(DATABASE_NAME):
         print('database reg.sqlite not found', file=stderr)
         exit(1)
@@ -35,17 +40,20 @@ def main(argv):
         "FROM courses " + \
         "INNER JOIN crosslistings ON crosslistings.courseid = courses.courseid " + \
         "INNER JOIN classes ON classes.courseid = courses.courseid " + \
-        "WHERE crosslistings.dept LIKE '%?%' " + \
-        "AND crosslistings.coursenum LIKE '%?%' " + \
-        "AND courses.area LIKE '%?%' " + \
-        "AND courses.title LIKE '%?%' "
+        "WHERE crosslistings.dept LIKE ? " + \
+        "AND crosslistings.coursenum LIKE ? " + \
+        "AND courses.area LIKE ? " + \
+        "AND courses.title LIKE ? "
 
 
-        cursor.execute(select_string, [dept, num, area, title])
+        cursor.execute(select_string, [str("%" + args.d[0] + "%"), str("%" + args.n[0] + "%"), str("%" + args.a[0] + "%"), str("%" + args.t[0] + "%")])
+        # cursor.execute(select_string)
         row = cursor.fetchone()
         while row is not None:
-            print("classid = {} courseid =  {} coursenum = {} area = {} title = {}".format(
+            print("-----------------------------")
+            print("classid = {} \ndept =  {} \ncoursenum = {} \narea = {} \ntitle = {}".format(
                 row[0], row[1], row[2], row[3], row[4]))
+            print("-----------------------------")
             row = cursor.fetchone()
         connection.commit()
         print("transaction commited")
