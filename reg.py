@@ -56,9 +56,31 @@ def main(argv):
         # cursor.execute(select_string)
         row = cursor.fetchone()
         while row is not None:
-            print("{} {} {} {} {}".format(
-                row[0], row[1], row[2], row[3],
-                textwrap.fill(row[4]), 72))
+            print_string = ""
+            i = 0
+            while i < (5 - len(row[0])):
+                print_string = print_string + " "
+            print_string = print_string + row[0] + "  "
+
+            print_string = print_string + row[1] + "   "
+
+            i = 0
+            while i < (4 - len(row[2])):
+                print_string = print_string + " "
+            print_string = print_string + row[2] + "   "
+
+            i = 0
+            while i < (2 - len(row[3])):
+                print_string = print_string + " "
+            print_string = print_string + row[3] + " "
+
+            print_string = print_string + row[4]
+
+            print(print_string)
+
+            # print("{} {} {} {} {}".format(
+            #     row[0], row[1], row[2], row[3],
+            #     textwrap.fill(row[4]), 72))
             row = cursor.fetchone()
         connection.commit()
         print("transaction commited")
