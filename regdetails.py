@@ -35,8 +35,8 @@ def main(argv):
         "FROM classes " + \
         "INNER JOIN crosslistings ON crosslistings.courseid = classes.courseid " + \
         "INNER JOIN courses ON classes.courseid = courses.courseid " + \
-        "INNER JOIN coursesprofs ON courseprofs.courseid =
-        classes.courseid " + \
+        "INNER JOIN coursesprofs ON courseprofs.courseid = " + \
+        "classes.courseid " + \
         "WHERE classes.classid = ?" + \
 
 
