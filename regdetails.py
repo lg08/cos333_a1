@@ -39,12 +39,20 @@ def main(argv):
         "classes.courseid " + \
         "WHERE classes.classid = ?"
 
-
         cursor.execute(select_string, [str(args.classid[0])])
 
         row = cursor.fetchone()
 
-        print(row[0])
+        print("Course Id: {}\n\n".format(row[0]))
+        print("Days: {}\n".format(row[1]))
+        print("End time: {}\n".format(row[2]))
+        print("Building: {}\n".format(row[3]))
+        print("Room: {}\n\n".format(row[4]))
+        print("Dept and Number: {} {}\n \n".format(row[5], row[6]))
+        print("Area: {}\n\n".format(row[7]))
+        print("Title: {}\n\n".format(row[8]))
+        print("Description: {}\n\n".format(textwrap.fill(row[9], 72)))
+        print("Prerequisites: {}\n\n".format(row[10]))
 
         # while row is not None:
         #     print_string = ""
