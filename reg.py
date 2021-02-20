@@ -61,7 +61,7 @@ def main(argv):
             while i < (5 - len(str(row[0]))):
                 print_string = print_string + " "
                 i += 1
-            print_string = print_string + row[0] + "  "
+            print_string = print_string + str(row[0]) + "  "
 
             print_string = print_string + row[1] + "   "
 
