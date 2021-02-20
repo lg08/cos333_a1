@@ -38,7 +38,7 @@ def main(argv):
         connection = connect(DATABASE_NAME)
         cursor = connection.cursor()
 
-        select_string =
+        select_string = "" + \
         "SELECT classes.classid, crosslistings.dept, crosslistings.coursenum, courses.area, courses.title " + \
         "FROM courses " + \
         "INNER JOIN crosslistings ON crosslistings.courseid = courses.courseid " + \
