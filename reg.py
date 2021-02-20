@@ -79,6 +79,8 @@ def main(argv):
 
             print_string = print_string + row[4]
 
+            print_string = textwrap.fill(print_string)
+
             print(print_string)
 
             # print("{} {} {} {} {}".format(
