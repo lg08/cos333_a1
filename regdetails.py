@@ -28,10 +28,10 @@ def main(argv):
         cursor = connection.cursor()
 
         select_string = "" + \
-        "SELECT classes.courseid, classes.days, classes.starttime,
-        classes.endtime, classes.bldg, classes.roomnum,
-        crosslistings.dept, crosslistings.coursenum, courses.area,
-        courses.title, courses.descrip, courses.prereqs, profs.profname" + \
+        "SELECT classes.courseid, classes.days, classes.starttime, " + \
+        "classes.endtime, classes.bldg, classes.roomnum, " + \
+        "crosslistings.dept, crosslistings.coursenum, courses.area," + \
+        "courses.title, courses.descrip, courses.prereqs, profs.profname " +\
         "FROM classes " + \
         "INNER JOIN crosslistings ON crosslistings.courseid = classes.courseid " + \
         "INNER JOIN courses ON classes.courseid = courses.courseid " + \
