@@ -43,19 +43,50 @@ def main(argv):
 
         row = cursor.fetchone()
 
+        course_id_string = "Course Id: {}\n\n".format(row[0])
+        day_string = "Day: {}\n\n".format(row[1])
+        start_string ="Start time: {}\n".format(row[2])
+        end_string = "End time: {}\n".format(row[3])
+        build_string ="Building: {}\n".format(row[4])
+        room_string = "Room: {}\n\n".format(row[5])
+        dept_and_num_string = "Dept and Number: {} {}\n".format(row[6], row[7])
+        area_string = "Area: {}\n\n".format(row[8])
+        title_string ="Title: {}\n\n".format(row[9])
+        desc_string = "Description: {}\n\n".format(textwrap.fill(row[10], 72))
+        preq_string = "Prerequisites: {}\n\n".format(textwrap.fill(row[11]))
+
         while row is not None:
-            print("Course Id: {}\n\n".format(row[0]))
-            print("Days: {}\n".format(row[1]))
-            print("Start time: {}\n".format(row[2]))
-            print("End time: {}\n".format(row[3]))
-            print("Building: {}\n".format(row[4]))
-            print("Room: {}\n\n".format(row[5]))
-            print("Dept and Number: {} {}\n \n".format(row[6], row[7]))
-            print("Area: {}\n\n".format(row[8]))
-            print("Title: {}\n\n".format(row[9]))
-            print("Description: {}\n\n".format(textwrap.fill(row[10], 72)))
-            print("Prerequisites: {}\n\n".format(row[11]))
+            dept_and_num_string = dept_and_num_string + "" +\
+            "Dept and Number: {} {}\n".format(row[6], row[7])
             row = cursor.fetchone()
+
+        print(course_id_string)
+        print(day_string)
+        print(start_string)
+        print(end_string)
+        print(build_string)
+        print(room_string)
+        print(dept_and_num_string)
+        print(area_string)
+        print(title_string)
+        print(desc_string)
+        print(preq_string)
+
+
+
+
+        # print("Course Id: {}\n\n".format(row[0]))
+        # print("Days: {}\n".format(row[1]))
+        # print("Start time: {}\n".format(row[2]))
+        # print("End time: {}\n".format(row[3]))
+        # print("Building: {}\n".format(row[4]))
+        # print("Room: {}\n\n".format(row[5]))
+        # print("Dept and Number: {} {}\n \n".format(row[6], row[7]))
+        # print("Area: {}\n\n".format(row[8]))
+        # print("Title: {}\n\n".format(row[9]))
+        # print("Description: {}\n\n".format(textwrap.fill(row[10], 72)))
+        # print("Prerequisites: {}\n\n".format(textwrap.fill(row[11])))
+        row = cursor.fetchone()
 
 
         # while row is not None:
