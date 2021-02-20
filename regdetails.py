@@ -43,17 +43,20 @@ def main(argv):
 
         row = cursor.fetchone()
 
-        print("Course Id: {}\n\n".format(row[0]))
-        print("Days: {}\n".format(row[1]))
-        print("Start time: {}\n".format(row[2]))
-        print("End time: {}\n".format(row[3]))
-        print("Building: {}\n".format(row[4]))
-        print("Room: {}\n\n".format(row[5]))
-        print("Dept and Number: {} {}\n \n".format(row[6], row[7]))
-        print("Area: {}\n\n".format(row[8]))
-        print("Title: {}\n\n".format(row[9]))
-        print("Description: {}\n\n".format(textwrap.fill(row[10], 72)))
-        print("Prerequisites: {}\n\n".format(row[11]))
+        while row is not None:
+            print("Course Id: {}\n\n".format(row[0]))
+            print("Days: {}\n".format(row[1]))
+            print("Start time: {}\n".format(row[2]))
+            print("End time: {}\n".format(row[3]))
+            print("Building: {}\n".format(row[4]))
+            print("Room: {}\n\n".format(row[5]))
+            print("Dept and Number: {} {}\n \n".format(row[6], row[7]))
+            print("Area: {}\n\n".format(row[8]))
+            print("Title: {}\n\n".format(row[9]))
+            print("Description: {}\n\n".format(textwrap.fill(row[10], 72)))
+            print("Prerequisites: {}\n\n".format(row[11]))
+            row = cursor.fetchone()
+
 
         # while row is not None:
         #     print_string = ""
