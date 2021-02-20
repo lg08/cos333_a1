@@ -31,7 +31,7 @@ def main(argv):
     if not path.isfile(DATABASE_NAME):
         print('database reg.sqlite not found', file=stderr)
         exit(1)
-                
+
     try:
         connection = connect(DATABASE_NAME)
         cursor = connection.cursor()
@@ -46,14 +46,15 @@ def main(argv):
         "AND courses.title LIKE ? "
 
 
-        cursor.execute(select_string, [str("%" + args.d[0] + "%"), str("%" + args.n[0] + "%"), str("%" + args.a[0] + "%"), str("%" + args.t[0] + "%")])
+        cursor.execute(select_string, [str("%" + args.d[0] + "%"),
+                                       str("%" + args.n[0] + "%"),
+                                       str("%" + args.a[0] + "%"),
+                                       str("%" + args.t[0] + "%")])
         # cursor.execute(select_string)
         row = cursor.fetchone()
         while row is not None:
-            print("-----------------------------")
-            print("classid = {} \ndept =  {} \ncoursenum = {} \narea = {} \ntitle = {}".format(
+            print("{} {} {} {} {}".format(
                 row[0], row[1], row[2], row[3], row[4]))
-            print("-----------------------------")
             row = cursor.fetchone()
         connection.commit()
         print("transaction commited")
