@@ -67,10 +67,10 @@ def main(argv):
             while i < (4 - len(row[2])):
                 print_string = print_string + " "
                 i += 1
-            print_string = print_string + row[2] + "   "
+            print_string = print_string + row[2] + "  "
 
             i = 0
-            while i < (2 - len(row[3])):
+            while i < (3 - len(row[3])):
                 print_string = print_string + " "
                 i += 1
             print_string = print_string + row[3] + " "
