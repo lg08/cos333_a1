@@ -37,7 +37,7 @@ def main(argv):
         "INNER JOIN courses ON classes.courseid = courses.courseid " + \
         "INNER JOIN coursesprofs ON courseprofs.courseid = " + \
         "classes.courseid " + \
-        "WHERE classes.classid = ?" + \
+        "WHERE classes.classid = ?"
 
 
         cursor.execute(select_string, [str(args.d[0])])
