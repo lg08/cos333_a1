@@ -58,7 +58,7 @@ def main(argv):
         while row is not None:
             print_string = ""
             i = 0
-            while i < (5 - len(row[0])):
+            while i < (5 - len(str(row[0]))):
                 print_string = print_string + " "
             print_string = print_string + row[0] + "  "
 
