@@ -52,6 +52,9 @@ def main(argv):
                                        str("%" + args.a[0] + "%"),
                                        str("%" + args.t[0] + "%")])
         # cursor.execute(select_string)
+        print("ClsId Dept CrsNum Area Title\n" + \
+              "----- ---- ------ ---- -----")
+
         row = cursor.fetchone()
         while row is not None:
             print_string = ""
