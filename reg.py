@@ -25,11 +25,6 @@ def main(argv):
         help='show only those classes whose course title contains title')
     args = parser.parse_args()
 
-    print(args.d[0])
-    print(vars(args)['d'][0])
-
-    print(args)
-
     if not path.isfile(DATABASE_NAME):
         print('database reg.sqlite not found', file=stderr)
         exit(1)
@@ -46,7 +41,10 @@ def main(argv):
         "WHERE crosslistings.dept LIKE ? " + \
         "AND crosslistings.coursenum LIKE ? " + \
         "AND courses.area LIKE ? " + \
-        "AND courses.title LIKE ? "
+        "AND courses.title LIKE ? " + \
+        "ORDER BY crosslistings.dept ASC, " + \
+        "crosslistings.coursenum ASC, " + \
+        "classes.classid ASC "
 
 
         cursor.execute(select_string, [str("%" + args.d[0] + "%"),
@@ -91,7 +89,6 @@ def main(argv):
 
 
         connection.commit()
-        print("transaction commited")
         cursor.close()
         connection.close()
 
