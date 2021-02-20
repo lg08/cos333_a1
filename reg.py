@@ -79,9 +79,8 @@ def main(argv):
 
             print_string = print_string + row[4]
 
-            print_string = textwrap.fill
-            (print_string, width=72,
-             subsequent_indent='                        ')
+            print_string = textwrap.fill(print_string, 72, initial_indent='',
+             subsequent_indent='                       ')
 
             print(print_string)
 
