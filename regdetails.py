@@ -40,7 +40,7 @@ def main(argv):
         "WHERE classes.classid = ?"
 
 
-        cursor.execute(select_string, [str(args.d[0])])
+        cursor.execute(select_string, [str(args.classid[0])])
 
         row = cursor.fetchone()
 
