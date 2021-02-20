@@ -6,6 +6,8 @@ from os import path
 from sys import argv, stderr, exit
 from sqlite3 import connect
 import argparse
+import textwrap
+
 
 def main(argv):
     DATABASE_NAME = 'reg.sqlite'
@@ -36,7 +38,8 @@ def main(argv):
         connection = connect(DATABASE_NAME)
         cursor = connection.cursor()
 
-        select_string = "SELECT classes.classid, crosslistings.dept, crosslistings.coursenum, courses.area, courses.title " + \
+        select_string =
+        "SELECT classes.classid, crosslistings.dept, crosslistings.coursenum, courses.area, courses.title " + \
         "FROM courses " + \
         "INNER JOIN crosslistings ON crosslistings.courseid = courses.courseid " + \
         "INNER JOIN classes ON classes.courseid = courses.courseid " + \
@@ -54,7 +57,8 @@ def main(argv):
         row = cursor.fetchone()
         while row is not None:
             print("{} {} {} {} {}".format(
-                row[0], row[1], row[2], row[3], row[4]))
+                row[0], row[1], row[2], row[3],
+                textwrap.fill(row[4]), 72))
             row = cursor.fetchone()
         connection.commit()
         print("transaction commited")
