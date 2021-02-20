@@ -60,6 +60,7 @@ def main(argv):
             i = 0
             while i < (5 - len(str(row[0]))):
                 print_string = print_string + " "
+                i += 1
             print_string = print_string + row[0] + "  "
 
             print_string = print_string + row[1] + "   "
@@ -67,11 +68,13 @@ def main(argv):
             i = 0
             while i < (4 - len(row[2])):
                 print_string = print_string + " "
+                i += 1
             print_string = print_string + row[2] + "   "
 
             i = 0
             while i < (2 - len(row[3])):
                 print_string = print_string + " "
+                i += 1
             print_string = print_string + row[3] + " "
 
             print_string = print_string + row[4]
@@ -82,6 +85,8 @@ def main(argv):
             #     row[0], row[1], row[2], row[3],
             #     textwrap.fill(row[4]), 72))
             row = cursor.fetchone()
+
+
         connection.commit()
         print("transaction commited")
         cursor.close()
