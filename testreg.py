@@ -24,6 +24,8 @@ cursor.close()
 
 connection.close()
 
+print("there are {} many crosslistings".format(len(courseid)))
+
 
 # # checks the different departments
 for count, area in enumerate(courseid):
