@@ -42,7 +42,7 @@ for count,id in enumerate(classid):
    refProg = 'python ref_regdetails.pyc {}'.format(id[0])
    system(ourProg + ' > ourFile')
    system(refProg + ' > refFile')
-   system('diff ourFile refFile >> result')
+   system('diff ourFile refFile >> result_for_regdetails')
    system('rm -f ourFile refFile')
    print("-" + str(count))
    if (count == 100):
