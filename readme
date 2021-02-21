@@ -4,15 +4,23 @@ Yusuf Kocaman, Lucas Gen, Assignment 1
 --------------------------------------------------------------------------------------------
 Yusuf:
 I helped with setting up the argparser and read the
-documentation in order to understand the functions parameters 
-and how to use it. I also helped a bit with string formating to print and 
+documentation in order to understand the functions parameters
+and how to use it. I also helped a bit with string formating to print and
 the making the prepared statements. I also helped write an automated testing program
-Finally I was able to prevent wildcards from being injected into the prepared statement 
+Finally I was able to prevent wildcards from being injected into the prepared statement
 by adding an escape character into the argument string with 'str.replace()'.
 --------------------------------------------------------------------------------------------
-Lucas: 
+Lucas:
+I helped with coming up with ways to grab information from the database and creating
+the strings to do just that. For example, I helped come up with our method of grabbing
+all of the correct information from the database for regdetails.py, by grabbing all the
+data with a one-to-one relationship first, and then making subsequent queries to pick
+up the data where there could be a many-to-one relationship. I also helped read the
+documentation for the textwrapping and helped format everything correctly. I also
+helped do a lot of the testing, including making the coverage report. Basically,
+we worked on everything together though.
 --------------------------------------------------------------------------------------------
-Help Recieved: 
+Help Recieved:
 --------------------------------------------------------------------------------------------
 Sources:
 https://docs.python.org/3/library/textwrap.html
@@ -24,6 +32,10 @@ https://www.tutorialspoint.com/python/string_replace.htm
 Time Spent: 10 hours
 --------------------------------------------------------------------------------------------
 Assessment:
-Yusuf: I thought that this assignment was very helpful in understanding basic sql and getting 
+Yusuf:
+I thought that this assignment was very helpful in understanding basic sql and getting
 more used to python. Though we got stuck at some points, I generally enjoyed the assignment.
 Lucas:
+I also enjoyed this assignment and I liked getting some experience with sql
+statements. I've used sqlite databases before, but never by issuing sql statements like
+this assignment and I foud it helpful.
