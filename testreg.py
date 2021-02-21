@@ -23,27 +23,75 @@ cursor.close()
 
 connection.close()
 
-# checks the different departments
-for count, area in enumerate(courseid):
-    for item in ['-d', '-t', '-n', '-a']:
-        ourProg = 'python reg.py {} "{}"'.format(item, area[0])
-        refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0])
-        system(ourProg + ' > ourFile')
-        system(refProg + ' > refFile')
-        system('diff ourFile refFile >> result')
-        system('rm -f ourFile refFile')
-    print(count)
-    if (count == 100):
-        break
+# # checks the different departments
+# for count, area in enumerate(courseid):
+#     for item in ['-d', '-t', '-n', '-a']:
+#         ourProg = 'python reg.py {} "{}"'.format(item, area[0])
+#         refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0])
+#         system(ourProg + ' &> ourFile')
+#         system(refProg + ' &> refFile')
+#         system('diff ourFile refFile >> result')
+#         system('rm -f ourFile refFile')
+#     print(count)
+#     if (count == 100):
+#         break
+
+test_string = [
+    "python reg.py",
+    "python reg.py -d COS",
+    "python reg.py -n 333",
+    "python reg.py -n b",
+    "python reg.py -a Qr",
+    "python reg.py -t intro",
+    "python reg.py -t science",
+    "python reg.py -t C_S",
+    "python reg.py -t c%S",
+    "python reg.py -d cos -n 3",
+    "python reg.py -d cos -a qr -n 2 -t intro",
+    "python reg.py -t 'Independent Study'",
+    "python reg.py -t 'Independent Study '",
+    "python reg.py -t 'Independent Study  '",
+    "python reg.py -t ' Independent Study'",
+    "python reg.py -t '  Independent Study'",
+    "python reg.py -t=-c",
+]
 
 
-for count,id in enumerate(classid):
-   ourProg = 'python regdetails.py {}'.format(id[0])
-   refProg = 'python ref_regdetails.pyc {}'.format(id[0])
-   system(ourProg + ' > ourFile')
-   system(refProg + ' > refFile')
-   system('diff ourFile refFile >> result_for_regdetails')
-   system('rm -f ourFile refFile')
-   print("-" + str(count))
-   if (count == 100):
-       break
+ref_string = [
+    "python ref_reg.pyc",
+    "python ref_reg.pyc -d COS",
+    "python ref_reg.pyc -n 333",
+    "python ref_reg.pyc -n b",
+    "python ref_reg.pyc -a Qr",
+    "python ref_reg.pyc -t intro",
+    "python ref_reg.pyc -t science",
+    "python ref_reg.pyc -t C_S",
+    "python ref_reg.pyc -t c%S",
+    "python ref_reg.pyc -d cos -n 3",
+    "python ref_reg.pyc -d cos -a qr -n 2 -t intro",
+    "python ref_reg.pyc -t 'Independent Study'",
+    "python ref_reg.pyc -t 'Independent Study '",
+    "python ref_reg.pyc -t 'Independent Study  '",
+    "python ref_reg.pyc -t ' Independent Study'",
+    "python ref_reg.pyc -t '  Independent Study'",
+    "python ref_reg.pyc -t=-c",
+]
+
+for index, line in enumerate(test_string):
+    system(line + ' &> ourFile')
+    system(ref_string[index] + ' &> refFile')
+    system('diff ourFile refFile >> result')
+    system('rm -f ourFile refFile')
+
+
+
+# for count,id in enumerate(classid):
+#    ourProg = 'python regdetails.py {}'.format(id[0])
+#    refProg = 'python ref_regdetails.pyc {}'.format(id[0])
+#    system(ourProg + ' &> ourFile')
+#    system(refProg + ' &> refFile')
+#    system('diff ourFile refFile >> result_for_regdetails')
+#    system('rm -f ourFile refFile')
+#    print("-" + str(count))
+#    if (count == 100):
+#        break
