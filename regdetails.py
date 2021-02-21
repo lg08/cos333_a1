@@ -115,7 +115,9 @@ def main(argv):
         print(room_string)
         for line in dept_and_num_string:
             print(textwrap.fill(line, 72,
-                                replace_whitespace=False, break_long_words=False))
+                                replace_whitespace=False,
+                                break_long_words=False))
+        print()
         print(area_string)
         print(textwrap.fill(title_string, 72,
                             replace_whitespace=False, break_long_words=False))
@@ -125,6 +127,7 @@ def main(argv):
         print()
         print(textwrap.fill(preq_string, 72, replace_whitespace=False,
                             break_long_words=False))
+        print()
         for line in profs_string:
             print(textwrap.fill(line, 72,
                                 replace_whitespace=False, break_long_words=False))
