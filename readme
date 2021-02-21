@@ -1,0 +1,29 @@
+ykocaman_lgen
+
+Yusuf Kocaman, Lucas Gen, Assignment 1
+--------------------------------------------------------------------------------------------
+Yusuf:
+I helped with setting up the argparser and read the
+documentation in order to understand the functions parameters 
+and how to use it. I also helped a bit with string formating to print and 
+the making the prepared statements. I also helped write an automated testing program
+Finally I was able to prevent wildcards from being injected into the prepared statement 
+by adding an escape character into the argument string with 'str.replace()'.
+--------------------------------------------------------------------------------------------
+Lucas: 
+--------------------------------------------------------------------------------------------
+Help Recieved: 
+--------------------------------------------------------------------------------------------
+Sources:
+https://docs.python.org/3/library/textwrap.html
+https://docs.python.org/3/library/argparse.html
+https://stackoverflow.com/questions/34370076/python-textwrap-breaking-sentences-in-wrong-places
+https://www.tutorialspoint.com/python/string_replace.htm
+
+--------------------------------------------------------------------------------------------
+Time Spent:
+--------------------------------------------------------------------------------------------
+Assessment:
+Yusuf: I thought that this assignment was very helpful in understanding basic sql and getting 
+more used to python. Though we got stuck at some points, I generally enjoyed the assignment.
+Lucas:

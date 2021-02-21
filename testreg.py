@@ -13,8 +13,8 @@ cursor.close()
 connection.close()
 
 for count,area in enumerate(courseid):
-    ourProg = 'python reg.py -d {}'.format(area[0])
-    refProg = 'python ref_reg.pyc -d {}'.format(area[0])
+    ourProg = 'python reg.py -d "{}"'.format(area[0])
+    refProg = 'python ref_reg.pyc -d "{}"'.format(area[0])
     system(ourProg + ' > ourFile')
     system(refProg + ' > refFile')
     system('diff ourFile refFile >> result')

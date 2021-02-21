@@ -38,19 +38,31 @@ def main(argv):
         "FROM courses " + \
         "INNER JOIN crosslistings ON crosslistings.courseid = courses.courseid " + \
         "INNER JOIN classes ON classes.courseid = courses.courseid " + \
-        "WHERE crosslistings.dept LIKE ? " + \
-        "AND crosslistings.coursenum LIKE ? " + \
-        "AND courses.area LIKE ? " + \
-        "AND courses.title LIKE ? " + \
+        "WHERE crosslistings.dept LIKE ? ESCAPE '@' " + \
+        "AND crosslistings.coursenum LIKE ? ESCAPE '@' " + \
+        "AND courses.area LIKE ? ESCAPE '@' " + \
+        "AND courses.title LIKE ? ESCAPE '@' " + \
         "ORDER BY crosslistings.dept ASC, " + \
         "crosslistings.coursenum ASC, " + \
         "classes.classid ASC "
 
+        #assigning args to vars and 'escaping' wildcard characters
 
-        cursor.execute(select_string, [str("%" + args.d[0] + "%"),
-                                       str("%" + args.n[0] + "%"),
-                                       str("%" + args.a[0] + "%"),
-                                       str("%" + args.t[0] + "%")])
+        d = args.d[0].replace('_', '@_')
+        n = args.n[0].replace('_', '@_')
+        a = args.a[0].replace('_', '@_')
+        t = args.t[0].replace('_', '@_')
+
+        d = d.replace('%', '@%')
+        n = n.replace('%', '@%')
+        a = a.replace('%', '@%')
+        t = t.replace('%', '@%')
+
+        
+        cursor.execute(select_string, [str("%" + d + "%"),
+                                       str("%" + n + "%"),
+                                       str("%" + a + "%"),
+                                       str("%" + t + "%")])
         # cursor.execute(select_string)
         print("ClsId Dept CrsNum Area Title\n" + \
               "----- ---- ------ ---- -----")
