@@ -31,7 +31,9 @@ for count, area in enumerate(courseid):
         ourProg = 'python reg.py {} "{}"'.format(item, area[0] + "%")
         refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0] + "%")
         system(ourProg + ' &> ourFile')
+        system("echo $? >> ourFile")
         system(refProg + ' &> refFile')
+        system("echo $? >> refFile")
         system('diff ourFile refFile >> result____')
         system('rm -f ourFile refFile')
     print(count)
@@ -82,7 +84,9 @@ ref_string = [
 for index, line in enumerate(test_string):
     print(str(index) + "*")
     system(line + ' &> ourFile')
+    system("echo $? >> ourFile")
     system(ref_string[index] + ' &> refFile')
+    system("echo $? >> refFile")
     system('diff ourFile refFile >> result____')
     system('rm -f ourFile refFile')
 
@@ -92,12 +96,14 @@ for count,id in enumerate(classid):
    ourProg = 'python regdetails.py {}'.format(id[0])
    refProg = 'python ref_regdetails.pyc {}'.format(id[0])
    system(ourProg + ' &> ourFile')
+   system("echo $? >> ourFile")
    system(refProg + ' &> refFile')
+   system("echo $? >> refFile")
    system('diff ourFile refFile >> result____')
    system('rm -f ourFile refFile')
    print("-" + str(count))
-   if (count == 100):
-       break
+   # if (count == 100):
+   #     break
 
 if os.stat("result____").st_size == 0:
     print("Everything Looks Good!!!!")
