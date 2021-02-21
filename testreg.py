@@ -37,10 +37,10 @@ for count, area in enumerate(courseid):
         system("echo $? >> refFile")
         system('diff ourFile refFile >> result____')
         system('rm -f ourFile refFile')
-        if os.stat("result____").st_size == 0:
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print(ourProg + "caused the problem")
-            exit(1)
+        # if os.stat("result____").st_size == 0:
+        #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        #     print(ourProg + "caused the problem")
+        #     exit(1)
     print(count)
     # if (count == 100):
     #     break
@@ -94,10 +94,10 @@ for index, line in enumerate(test_string):
     system("echo $? >> refFile")
     system('diff ourFile refFile >> result____')
     system('rm -f ourFile refFile')
-    if os.stat("result____").st_size == 0:
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(line + "caused the problem")
-        exit(1)
+    # if os.stat("result____").st_size == 0:
+    #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    #     print(line + "caused the problem")
+    #     exit(1)
 
 
 for count,id in enumerate(classid):
@@ -108,10 +108,10 @@ for count,id in enumerate(classid):
     system(refProg + ' &> refFile')
     system("echo $? >> refFile")
     system('diff ourFile refFile >> result____')
-    if os.stat("result____").st_size == 0:
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(ourProg + "caused the problem")
-        exit(1)
+    # if os.stat("result____").st_size == 0:
+    #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    #     print(ourProg + "caused the problem")
+    #     exit(1)
     system('rm -f ourFile refFile')
     print("-" + str(count))
     # if (count == 100):
