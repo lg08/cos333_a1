@@ -98,14 +98,6 @@ def main(argv):
             row = cursor.fetchone()
 
 
-        # final_string = course_id_string + day_string + start_string + \
-        #     end_string + build_string + room_string + dept_and_num_string \
-        #     + area_string + title_string + desc_string + preq_string + \
-        #     profs_string
-
-        # print(textwrap.fill(final_string, 72))
-
-
         print(textwrap.fill(course_id_string, 72,
                             replace_whitespace=False,
                             break_long_words=True, drop_whitespace=False))
@@ -136,58 +128,7 @@ def main(argv):
             print(textwrap.fill(line, 72,
                                 replace_whitespace=False, break_long_words=True, drop_whitespace=False))
 
-
-
-
-
-        # print("Course Id: {}\n\n".format(row[0]))
-        # print("Days: {}\n".format(row[1]))
-        # print("Start time: {}\n".format(row[2]))
-        # print("End time: {}\n".format(row[3]))
-        # print("Building: {}\n".format(row[4]))
-        # print("Room: {}\n\n".format(row[5]))
-        # print("Dept and Number: {} {}\n \n".format(row[6], row[7]))
-        # print("Area: {}\n\n".format(row[8]))
-        # print("Title: {}\n\n".format(row[9]))
-        # print("Description: {}\n\n".format(textwrap.fill(row[10], 72)))
-        # print("Prerequisites: {}\n\n".format(textwrap.fill(row[11])))
         row = cursor.fetchone()
-
-
-        # while row is not None:
-        #     print_string = ""
-        #     i = 0
-        #     while i < (5 - len(str(row[0]))):
-        #         print_string = print_string + " "
-        #         i += 1
-        #     print_string = print_string + str(row[0]) + "  "
-
-        #     print_string = print_string + row[1] + "   "
-
-        #     i = 0
-        #     while i < (4 - len(row[2])):
-        #         print_string = print_string + " "
-        #         i += 1
-        #     print_string = print_string + row[2] + "  "
-
-        #     i = 0
-        #     while i < (3 - len(row[3])):
-        #         print_string = print_string + " "
-        #         i += 1
-        #     print_string = print_string + row[3] + " "
-
-        #     print_string = print_string + row[4]
-
-        #     print_string = textwrap.fill(print_string, 72, initial_indent='',
-        #      subsequent_indent='                       ')
-
-        #     print(print_string)
-
-        #     # print("{} {} {} {} {}".format(
-        #     #     row[0], row[1], row[2], row[3],
-        #     #     textwrap.fill(row[4]), 72))
-        #     row = cursor.fetchone()
-
 
         connection.commit()
         cursor.close()

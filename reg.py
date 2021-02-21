@@ -85,9 +85,6 @@ def main(argv):
 
             print(print_string)
 
-            # print("{} {} {} {} {}".format(
-            #     row[0], row[1], row[2], row[3],
-            #     textwrap.fill(row[4]), 72))
             row = cursor.fetchone()
 
 
