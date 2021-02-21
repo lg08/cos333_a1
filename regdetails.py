@@ -2,11 +2,11 @@
 # reg.py
 # Author: Lucas Gen, Yusuf Kocaman
 #-----------------------------------------------------------------------
-from os import path
-from sys import argv, stderr, exit
-from sqlite3 import connect
 import argparse
 import textwrap
+from os import path
+from sqlite3 import connect
+from sys import argv, exit, stderr
 
 
 def main(argv):
@@ -72,20 +72,20 @@ def main(argv):
                 "Dept and Number: {} {}\n".format(row[1], row[0])
             row = cursor.fetchone()
 
-       cursor.close()
+        cursor.close()
 
-       # new cursor to grab professors
-       cursor = connection.cursor()
-       profs_string = ""
+        # new cursor to grab professors
+        cursor = connection.cursor()
+        profs_string = ""
 
         select_string = "" + \
-        "SELECT profs.profname " + \
-        "FROM classes " + \
-        "INNER JOIN coursesprofs ON classes.courseid = " +\
-        "coursesprofs.courseid " + \
-        "INNER JOIN profs ON profs.profid = coursesprofs.profid " + \
-        "WHERE classes.classid = ? " + \
-        "ORDER BY profs.profname ASC"
+            "SELECT profs.profname " + \
+            "FROM classes " + \
+            "INNER JOIN coursesprofs ON classes.courseid = " +\
+            "coursesprofs.courseid " + \
+            "INNER JOIN profs ON profs.profid = coursesprofs.profid " + \
+            "WHERE classes.classid = ? " + \
+            "ORDER BY profs.profname ASC"
 
         cursor.execute(select_string, [str(args.classid[0])])
 
@@ -95,7 +95,6 @@ def main(argv):
                 "Professor: {}\n".format(row[0])
             row = cursor.fetchone()
 
-       cursor.close()
 
 
         # while row is not None:
