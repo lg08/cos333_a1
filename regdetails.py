@@ -40,16 +40,16 @@ def main(argv):
 
         row = cursor.fetchone()
 
-        course_id_string = "Course Id: {}\n\n".format(row[0])
-        day_string = "Day: {}\n".format(row[1])
-        start_string ="Start time: {}\n".format(row[2])
-        end_string = "End time: {}\n".format(row[3])
-        build_string ="Building: {}\n".format(row[4])
-        room_string = "Room: {}\n\n".format(row[5])
-        area_string = "Area: {}\n\n".format(row[6])
-        title_string ="Title: {}\n\n".format(row[7])
-        desc_string = "Description: {}\n\n".format(row[8], 72)
-        preq_string = "Prerequisites: {}\n".format(row[9])
+        course_id_string = "Course Id: {}\n".format(row[0])
+        day_string = "Day: {}".format(row[1])
+        start_string ="Start time: {}".format(row[2])
+        end_string = "End time: {}".format(row[3])
+        build_string ="Building: {}".format(row[4])
+        room_string = "Room: {}\n".format(row[5])
+        area_string = "Area: {}\n".format(row[6])
+        title_string ="Title: {}\n".format(row[7])
+        desc_string = "Description: {}\n".format(row[8], 72)
+        preq_string = "Prerequisites: {}".format(row[9])
 
         cursor.close()
 
@@ -97,31 +97,26 @@ def main(argv):
 
 
 
-        # while row is not None:
-        #     dept_and_num_string = dept_and_num_string + "" +\
-        #     "Dept and Number: {} {}\n".format(row[6], row[7])
-        #     row = cursor.fetchone()
+        # final_string = course_id_string + day_string + start_string + \
+        #     end_string + build_string + room_string + dept_and_num_string \
+        #     + area_string + title_string + desc_string + preq_string + \
+        #     profs_string
 
-        final_string = course_id_string + day_string + start_string + \
-            end_string + build_string + room_string + dept_and_num_string \
-            + area_string + title_string + desc_string + preq_string + \
-            profs_string
-
-        print(textwrap.fill(final_string, 72))
+        # print(textwrap.fill(final_string, 72))
 
 
-        # print(course_id_string)
-        # print(day_string)
-        # print(start_string)
-        # print(end_string)
-        # print(build_string)
-        # print(room_string)
-        # print(dept_and_num_string)
-        # print(area_string)
-        # print(title_string)
-        # print(desc_string)
-        # print(preq_string)
-        # print(profs_string)
+        print(textwrap.fill(course_id_string, 72))
+        print(textwrap.fill(day_string, 72))
+        print(textwrap.fill(start_string, 72))
+        print(textwrap.fill(end_string, 72))
+        print(textwrap.fill(build_string, 72))
+        print(textwrap.fill(room_string, 72))
+        print(textwrap.fill(dept_and_num_string, 72))
+        print(textwrap.fill(area_string, 72))
+        print(textwrap.fill(title_string, 72))
+        print(textwrap.fill(desc_string, 72))
+        print(textwrap.fill(preq_string, 72))
+        print(textwrap.fill(profs_string, 72))
 
 
 
