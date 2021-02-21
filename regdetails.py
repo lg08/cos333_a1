@@ -53,7 +53,7 @@ def main(argv):
 
         cursor.close()
 
-        dept_and_num_string = ""
+        dept_and_num_string = []
 
         cursor = connection.cursor()
         select_string = "" + \
@@ -68,15 +68,15 @@ def main(argv):
 
         row = cursor.fetchone()
         while row is not None:
-            dept_and_num_string += \
-                "Dept and Number: {} {}\n".format(row[1], row[0])
+            dept_and_num_string.append("Dept and Number: {} {}".format(
+                row[1], row[0]
+            ))
             row = cursor.fetchone()
 
         cursor.close()
 
         # new cursor to grab professors
         cursor = connection.cursor()
-        profs_string = ""
 
         select_string = "" + \
             "SELECT profs.profname " + \
@@ -88,11 +88,13 @@ def main(argv):
             "ORDER BY profs.profname ASC"
 
         cursor.execute(select_string, [str(args.classid[0])])
+        profs_string = []
 
         row = cursor.fetchone()
         while row is not None:
-            profs_string += \
-                "\nProfessor: {}".format(row[0])
+            profs_string.append(
+                "Professor: {}".format(row[0])
+            )
             row = cursor.fetchone()
 
 
@@ -111,8 +113,9 @@ def main(argv):
         print(end_string)
         print(build_string)
         print(room_string)
-        print(textwrap.fill(dept_and_num_string, 72,
-                            replace_whitespace=False, break_long_words=False))
+        for line in dept_and_num_string:
+            print(textwrap.fill(line, 72,
+                                replace_whitespace=False, break_long_words=False))
         print(area_string)
         print(textwrap.fill(title_string, 72,
                             replace_whitespace=False, break_long_words=False))
@@ -122,8 +125,10 @@ def main(argv):
         print()
         print(textwrap.fill(preq_string, 72, replace_whitespace=False,
                             break_long_words=False))
-        print(textwrap.fill(profs_string, 72,
-                            replace_whitespace=False, break_long_words=False))
+        for line in profs_string:
+            print(textwrap.fill(line, 72,
+                                replace_whitespace=False, break_long_words=False))
+
 
 
 
