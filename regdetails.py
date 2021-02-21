@@ -15,7 +15,7 @@ def main(argv):
         description='Registrar application: show details about a class',
         allow_abbrev=False)
 
-    parser.add_argument('classid', nargs=1, default='%',
+    parser.add_argument('classid', nargs=1, default='%', type=int,
         help='the id of the class whose details should be shown')
     args = parser.parse_args()
 
@@ -98,7 +98,6 @@ def main(argv):
             row = cursor.fetchone()
 
 
-
         # final_string = course_id_string + day_string + start_string + \
         #     end_string + build_string + room_string + dept_and_num_string \
         #     + area_string + title_string + desc_string + preq_string + \
@@ -109,37 +108,33 @@ def main(argv):
 
         print(textwrap.fill(course_id_string, 72,
                             replace_whitespace=False,
-                            break_long_words=False))
-        print()
-        print(textwrap.fill(day_string, 72, replace_whitespace=False, break_long_words=False))
+                            break_long_words=True, drop_whitespace=False))
+
+        print(textwrap.fill(day_string, 72, replace_whitespace=False, break_long_words=True, drop_whitespace=False))
         print(textwrap.fill(start_string, 72,
-                            replace_whitespace=False, break_long_words=False))
-        print(textwrap.fill(end_string, 72, replace_whitespace=False, break_long_words=False))
-        print(textwrap.fill(build_string, 72,
-                            replace_whitespace=False, break_long_words=False))
-        print(textwrap.fill(room_string, 72, replace_whitespace=False,
-                            break_long_words=False))
-        print()
+                            replace_whitespace=False, break_long_words=True, drop_whitespace=False))
+        print(textwrap.fill(end_string, 72, replace_whitespace=False, break_long_words=True, drop_whitespace=False))
+        print(textwrap.fill(build_string, 72, replace_whitespace=False, break_long_words=True, drop_whitespace=False))
+        print(textwrap.fill(room_string, 72, replace_whitespace=False, break_long_words=True, drop_whitespace=False))
+
         for line in dept_and_num_string:
             print(textwrap.fill(line, 72,
                                 replace_whitespace=False,
-                                break_long_words=False))
+                                break_long_words=True, drop_whitespace=False))
         print()
-        print(textwrap.fill(area_string, 72, replace_whitespace=False,
-                            break_long_words=False))
-        print()
+        print(textwrap.fill(area_string, 72, replace_whitespace=False, break_long_words=True, drop_whitespace=False))
         print(textwrap.fill(title_string, 72,
-                            replace_whitespace=False, break_long_words=False))
+                            replace_whitespace=False, break_long_words=True))
         print()
         print(textwrap.fill(desc_string, 72, replace_whitespace=False,
-                            break_long_words=False))
+                            break_long_words=True))
         print()
         print(textwrap.fill(preq_string, 72, replace_whitespace=False,
-                            break_long_words=False))
+                            break_long_words=True))
         print()
         for line in profs_string:
             print(textwrap.fill(line, 72,
-                                replace_whitespace=False, break_long_words=False))
+                                replace_whitespace=False, break_long_words=True, drop_whitespace=False))
 
 
 
