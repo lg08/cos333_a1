@@ -10,6 +10,17 @@ cursor.execute("SELECT crosslistings.dept " + \
 
 courseid = cursor.fetchall()
 cursor.close()
+
+
+cursor = connection.cursor()
+
+cursor.execute("SELECT classes.classid " + \
+    "FROM classes")
+
+classid = cursor.fetchall()
+cursor.close()
+
+
 connection.close()
 
 # checks the different departments
@@ -24,12 +35,13 @@ for count, area in enumerate(courseid):
     if (count == 100):
         break
 
-# checks wildcard shit
 
-for count,id in enumerate(courseid):
+for count,id in enumerate(classid):
    ourProg = 'python regdetails.py {}'.format(id[0])
    refProg = 'python ref_regdetails.pyc {}'.format(id[0])
    system(ourProg + ' > ourFile')
    system(refProg + ' > refFile')
    system('diff ourFile refFile >> result')
    system('rm -f ourFile refFile')
+   if (count == 100):
+       break
