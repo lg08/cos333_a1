@@ -113,9 +113,13 @@ def main(argv):
         print(room_string)
         print(dept_and_num_string)
         print(area_string)
-        print(textwrap.fill(title_string, 72, replace_whitespace=False))
+        print(textwrap.fill(title_string, 72,
+                            replace_whitespace=False))
+        print()
         print(textwrap.fill(desc_string, 72, replace_whitespace=False))
+        print()
         print(textwrap.fill(preq_string, 72, replace_whitespace=False))
+        print()
         print(profs_string)
 
 
