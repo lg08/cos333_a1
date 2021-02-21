@@ -107,18 +107,23 @@ def main(argv):
         # print(textwrap.fill(final_string, 72))
 
 
-        print(course_id_string)
-        print(day_string)
-        print(start_string)
-        print(end_string)
-        print(build_string)
-        print(room_string)
+        print(textwrap.fill(course_id_string, 72,
+                            replace_whitespace=False, break_long_words=False))
+        print(textwrap.fill(day_string, 72, replace_whitespace=False, break_long_words=False))
+        print(textwrap.fill(start_string, 72,
+                            replace_whitespace=False, break_long_words=False))
+        print(textwrap.fill(end_string, 72, replace_whitespace=False, break_long_words=False))
+        print(textwrap.fill(build_string, 72,
+                            replace_whitespace=False, break_long_words=False))
+        print(textwrap.fill(room_string, 72, replace_whitespace=False,
+                            break_long_words=False))
         for line in dept_and_num_string:
             print(textwrap.fill(line, 72,
                                 replace_whitespace=False,
                                 break_long_words=False))
         print()
-        print(area_string)
+        print(textwrap.fill(area_string, 72, replace_whitespace=False,
+                            break_long_words=False))
         print(textwrap.fill(title_string, 72,
                             replace_whitespace=False, break_long_words=False))
         print()
