@@ -111,7 +111,7 @@ def main(argv):
         print(end_string)
         print(build_string)
         print(room_string)
-        print(textwrap.fill(dept_and_num_string, 72))
+        print(textwrap.fill(dept_and_num_string, 72, replace_whitespace=False))
         print(area_string)
         print(textwrap.fill(title_string, 72,
                             replace_whitespace=False))
@@ -119,7 +119,7 @@ def main(argv):
         print(textwrap.fill(desc_string, 72, replace_whitespace=False))
         print()
         print(textwrap.fill(preq_string, 72, replace_whitespace=False))
-        print(textwrap.fill(profs_string, 72))
+        print(textwrap.fill(profs_string, 72, replace_whitespace=False))
 
 
 
