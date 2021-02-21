@@ -105,21 +105,19 @@ def main(argv):
         # print(textwrap.fill(final_string, 72))
 
 
-        print(textwrap.fill(course_id_string, 72,
+        print(textwrap.wrap(course_id_string, 72,
                             replace_whitespace=False))
-        print("\n")
-        print(textwrap.fill(day_string, 72, replace_whitespace=False))
-        print("\n")
-        print(textwrap.fill(start_string, 72, replace_whitespace=False))
-        print(textwrap.fill(end_string, 72, replace_whitespace=False))
-        print(textwrap.fill(build_string, 72, replace_whitespace=False))
-        print(textwrap.fill(room_string, 72, replace_whitespace=False))
-        print(textwrap.fill(dept_and_num_string, 72, replace_whitespace=False))
-        print(textwrap.fill(area_string, 72, replace_whitespace=False))
-        print(textwrap.fill(title_string, 72, replace_whitespace=False))
-        print(textwrap.fill(desc_string, 72, replace_whitespace=False))
-        print(textwrap.fill(preq_string, 72, replace_whitespace=False))
-        print(textwrap.fill(profs_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(day_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(start_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(end_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(build_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(room_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(dept_and_num_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(area_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(title_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(desc_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(preq_string, 72, replace_whitespace=False))
+        print(textwrap.wrap(profs_string, 72, replace_whitespace=False))
 
 
 
