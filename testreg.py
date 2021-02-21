@@ -26,17 +26,17 @@ connection.close()
 
 
 # # checks the different departments
-# for count, area in enumerate(courseid):
-#     for item in ['-d', '-t', '-n', '-a']:
-#         ourProg = 'python reg.py {} "{}"'.format(item, area[0] + "%")
-#         refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0] + "%")
-#         system(ourProg + ' &> ourFile')
-#         system(refProg + ' &> refFile')
-#         system('diff ourFile refFile >> result____')
-#         system('rm -f ourFile refFile')
-#     print(count)
-#     if (count == 100):
-#         break
+for count, area in enumerate(courseid):
+    for item in ['-d', '-t', '-n', '-a']:
+        ourProg = 'python reg.py {} "{}"'.format(item, area[0] + "%")
+        refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0] + "%")
+        system(ourProg + ' &> ourFile')
+        system(refProg + ' &> refFile')
+        system('diff ourFile refFile >> result____')
+        system('rm -f ourFile refFile')
+    print(count)
+    # if (count == 100):
+    #     break
 
 test_string = [
     "python reg.py",
