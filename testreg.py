@@ -5,8 +5,8 @@ from sqlite3 import connect
 connection = connect('reg.sqlite')
 cursor = connection.cursor()
 
-cursor.execute("SELECT courses.area " + \
-    "FROM courses")
+cursor.execute("SELECT crosslistings.dept " + \
+    "FROM crosslistings")
 
 courseid = cursor.fetchall()
 cursor.close()
