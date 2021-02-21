@@ -60,16 +60,42 @@ def main(argv):
         "SELECT crosslistings.coursenum, crosslistings.dept " + \
         "FROM classes " + \
         "INNER JOIN crosslistings ON classes.courseid = crosslistings.courseid " + \
-        "WHERE classes.classid = ?"
+        "WHERE classes.classid = ? " + \
+        "ORDER BY crosslistings.dept ASC, " + \
+        "crosslistings.coursenum ASC"
 
         cursor.execute(select_string, [str(args.classid[0])])
 
         row = cursor.fetchone()
         while row is not None:
             dept_and_num_string += \
-                "Dept and Number: {} {}\n".format(row[0], row[1])
+                "Dept and Number: {} {}\n".format(row[1], row[0])
             row = cursor.fetchone()
 
+       cursor.close()
+
+       # new cursor to grab professors
+       cursor = connection.cursor()
+       profs_string = ""
+
+        select_string = "" + \
+        "SELECT profs.profname " + \
+        "FROM classes " + \
+        "INNER JOIN coursesprofs ON classes.courseid = " +\
+        "coursesprofs.courseid " + \
+        "INNER JOIN profs ON profs.profid = coursesprofs.profid " + \
+        "WHERE classes.classid = ? " + \
+        "ORDER BY profs.profname ASC"
+
+        cursor.execute(select_string, [str(args.classid[0])])
+
+        row = cursor.fetchone()
+        while row is not None:
+            profs_string += \
+                "Professor: {}\n".format(row[0])
+            row = cursor.fetchone()
+
+       cursor.close()
 
 
         # while row is not None:
@@ -88,6 +114,7 @@ def main(argv):
         print(title_string)
         print(desc_string)
         print(preq_string)
+        print(profs_string)
 
 
 
