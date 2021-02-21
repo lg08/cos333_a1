@@ -51,8 +51,26 @@ def main(argv):
         desc_string = "Description: {}\n\n".format(textwrap.fill(row[8], 72))
         preq_string = "Prerequisites: {}\n\n".format(textwrap.fill(row[9]))
 
+        cursor.close()
 
-        # dept_and_num_string = "Dept and Number: {} {}\n".format(row[6], row[7])
+        dept_and_num_string = ""
+
+        cursor = connection.cursor()
+        select_string = "" + \
+        "SELECT crosslistings.coursenum, crosslistings.dept " + \
+        "FROM classes " + \
+        "INNER JOIN crosslistings ON classes.courseid = crosslistings.courseid " + \
+        "WHERE classes.classid = ?"
+
+        cursor.execute(select_string, [str(args.classid[0])])
+
+        row = cursor.fetchone()
+        while row is not None:
+            dept_and_num_string += \
+                "Dept and Number: {} {}\n".format(row[0], row[1])
+            row = cursor.fetchone()
+
+
 
         # while row is not None:
         #     dept_and_num_string = dept_and_num_string + "" +\
@@ -65,7 +83,7 @@ def main(argv):
         print(end_string)
         print(build_string)
         print(room_string)
-        # print(dept_and_num_string)
+        print(dept_and_num_string)
         print(area_string)
         print(title_string)
         print(desc_string)
