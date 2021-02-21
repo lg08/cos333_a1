@@ -28,7 +28,7 @@ print("there are {} many crosslistings".format(len(courseid)))
 
 # # checks the different departments
 for count, area in enumerate(courseid):
-    for item in ['-d', '-t', '-n', '-a']:
+    for item in ['-d']:
         ourProg = 'python reg.py {} "{}"'.format(item, area[0] + "%")
         refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0] + "%")
         system(ourProg + ' &> ourFile')
