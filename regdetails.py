@@ -69,7 +69,7 @@ def main(argv):
         row = cursor.fetchone()
         while row is not None:
             dept_and_num_string += \
-                "Dept and Number: {} {}\n\n".format(row[1], row[0])
+                "Dept and Number: {} {}\n".format(row[1], row[0])
             row = cursor.fetchone()
 
         cursor.close()
@@ -111,7 +111,7 @@ def main(argv):
         print(textwrap.fill(end_string, 72))
         print(textwrap.fill(build_string, 72))
         print(textwrap.fill(room_string, 72))
-        print(textwrap.fill(dept_and_num_string, 72))
+        print(dept_and_num_string)
         print(textwrap.fill(area_string, 72))
         print(textwrap.fill(title_string, 72))
         print(textwrap.fill(desc_string, 72))
