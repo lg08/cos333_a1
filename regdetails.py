@@ -41,7 +41,7 @@ def main(argv):
         row = cursor.fetchone()
 
         course_id_string = "Course Id: {}\n".format(row[0])
-        day_string = "Day: {}".format(row[1])
+        day_string = "Days: {}".format(row[1])
         start_string ="Start time: {}".format(row[2])
         end_string = "End time: {}".format(row[3])
         build_string ="Building: {}".format(row[4])
