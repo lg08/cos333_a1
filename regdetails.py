@@ -105,8 +105,11 @@ def main(argv):
         # print(textwrap.fill(final_string, 72))
 
 
-        print(textwrap.fill(course_id_string, 72, replace_whitespace=False))
+        print(textwrap.fill(course_id_string, 72,
+                            replace_whitespace=False))
+        print("\n")
         print(textwrap.fill(day_string, 72, replace_whitespace=False))
+        print("\n")
         print(textwrap.fill(start_string, 72, replace_whitespace=False))
         print(textwrap.fill(end_string, 72, replace_whitespace=False))
         print(textwrap.fill(build_string, 72, replace_whitespace=False))
