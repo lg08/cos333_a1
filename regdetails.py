@@ -119,7 +119,6 @@ def main(argv):
         print(textwrap.fill(desc_string, 72, replace_whitespace=False))
         print()
         print(textwrap.fill(preq_string, 72, replace_whitespace=False))
-        print()
         print(profs_string)
 
 
