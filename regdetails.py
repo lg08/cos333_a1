@@ -40,16 +40,16 @@ def main(argv):
 
         row = cursor.fetchone()
 
-        course_id_string = "Course Id: {}\n".format(row[0])
-        day_string = "Day: {}".format(row[1])
-        start_string ="Start time: {}".format(row[2])
-        end_string = "End time: {}".format(row[3])
-        build_string ="Building: {}".format(row[4])
-        room_string = "Room: {}\n".format(row[5])
-        area_string = "Area: {}\n".format(row[6])
-        title_string ="Title: {}\n".format(row[7])
-        desc_string = "Description: {}\n".format(row[8], 72)
-        preq_string = "Prerequisites: {}".format(row[9])
+        course_id_string = "Course Id: {}\n\n".format(row[0])
+        day_string = "Day: {}\n".format(row[1])
+        start_string ="Start time: {}\n".format(row[2])
+        end_string = "End time: {}\n".format(row[3])
+        build_string ="Building: {}\n".format(row[4])
+        room_string = "Room: {}\n\n".format(row[5])
+        area_string = "Area: {}\n\n".format(row[6])
+        title_string ="Title: {}\n\n".format(row[7])
+        desc_string = "Description: {}\n\n".format(row[8], 72)
+        preq_string = "Prerequisites: {}\n".format(row[9])
 
         cursor.close()
 
