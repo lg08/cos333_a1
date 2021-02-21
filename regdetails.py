@@ -69,7 +69,7 @@ def main(argv):
         row = cursor.fetchone()
         while row is not None:
             dept_and_num_string += \
-                "Dept and Number: {} {}\n".format(row[1], row[0])
+                "Dept and Number: {} {}\n\n".format(row[1], row[0])
             row = cursor.fetchone()
 
         cursor.close()
