@@ -1,7 +1,6 @@
-from os import system
 import os
+from os import system
 from sqlite3 import connect
-
 
 connection = connect('reg.sqlite')
 cursor = connection.cursor()
@@ -38,6 +37,10 @@ for count, area in enumerate(courseid):
         system("echo $? >> refFile")
         system('diff ourFile refFile >> result____')
         system('rm -f ourFile refFile')
+        if os.stat("result____").st_size == 0:
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            print(ourProg + "caused the problem")
+            exit(1)
     print(count)
     # if (count == 100):
     #     break
@@ -91,21 +94,28 @@ for index, line in enumerate(test_string):
     system("echo $? >> refFile")
     system('diff ourFile refFile >> result____')
     system('rm -f ourFile refFile')
-
+    if os.stat("result____").st_size == 0:
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(line + "caused the problem")
+        exit(1)
 
 
 for count,id in enumerate(classid):
-   ourProg = 'python regdetails.py {}'.format(id[0])
-   refProg = 'python ref_regdetails.pyc {}'.format(id[0])
-   system(ourProg + ' &> ourFile')
-   system("echo $? >> ourFile")
-   system(refProg + ' &> refFile')
-   system("echo $? >> refFile")
-   system('diff ourFile refFile >> result____')
-   system('rm -f ourFile refFile')
-   print("-" + str(count))
-   # if (count == 100):
-   #     break
+    ourProg = 'python regdetails.py {}'.format(id[0])
+    refProg = 'python ref_regdetails.pyc {}'.format(id[0])
+    system(ourProg + ' &> ourFile')
+    system("echo $? >> ourFile")
+    system(refProg + ' &> refFile')
+    system("echo $? >> refFile")
+    system('diff ourFile refFile >> result____')
+    if os.stat("result____").st_size == 0:
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(ourProg + "caused the problem")
+        exit(1)
+    system('rm -f ourFile refFile')
+    print("-" + str(count))
+    # if (count == 100):
+    #     break
 
 if os.stat("result____").st_size == 0:
     print("Everything Looks Good!!!!")
