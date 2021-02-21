@@ -81,7 +81,7 @@ for index, line in enumerate(test_string):
     print(str(index) + "*")
     system(line + ' &> ourFile')
     system(ref_string[index] + ' &> refFile')
-    system('diff ourFile refFile >> result')
+    system('diff -y ourFile refFile >> result')
     system('rm -f ourFile refFile')
 
 
