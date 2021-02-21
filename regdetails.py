@@ -30,13 +30,10 @@ def main(argv):
         select_string = "" + \
         "SELECT classes.courseid, classes.days, classes.starttime, " + \
         "classes.endtime, classes.bldg, classes.roomnum, " + \
-        "crosslistings.dept, crosslistings.coursenum, courses.area," + \
+        "courses.area," + \
         "courses.title, courses.descrip, courses.prereqs " +\
         "FROM classes " + \
-        "INNER JOIN crosslistings ON crosslistings.courseid = classes.courseid " + \
         "INNER JOIN courses ON classes.courseid = courses.courseid " + \
-        "INNER JOIN coursesprofs ON coursesprofs.courseid = " + \
-        "classes.courseid " + \
         "WHERE classes.classid = ?"
 
         cursor.execute(select_string, [str(args.classid[0])])
@@ -49,16 +46,18 @@ def main(argv):
         end_string = "End time: {}\n".format(row[3])
         build_string ="Building: {}\n".format(row[4])
         room_string = "Room: {}\n\n".format(row[5])
-        dept_and_num_string = "Dept and Number: {} {}\n".format(row[6], row[7])
-        area_string = "Area: {}\n\n".format(row[8])
-        title_string ="Title: {}\n\n".format(row[9])
-        desc_string = "Description: {}\n\n".format(textwrap.fill(row[10], 72))
-        preq_string = "Prerequisites: {}\n\n".format(textwrap.fill(row[11]))
+        area_string = "Area: {}\n\n".format(row[6])
+        title_string ="Title: {}\n\n".format(row[7])
+        desc_string = "Description: {}\n\n".format(textwrap.fill(row[08], 72))
+        preq_string = "Prerequisites: {}\n\n".format(textwrap.fill(row[09]))
 
-        while row is not None:
-            dept_and_num_string = dept_and_num_string + "" +\
-            "Dept and Number: {} {}\n".format(row[6], row[7])
-            row = cursor.fetchone()
+
+        # dept_and_num_string = "Dept and Number: {} {}\n".format(row[6], row[7])
+
+        # while row is not None:
+        #     dept_and_num_string = dept_and_num_string + "" +\
+        #     "Dept and Number: {} {}\n".format(row[6], row[7])
+        #     row = cursor.fetchone()
 
         print(course_id_string)
         print(day_string)
@@ -66,7 +65,7 @@ def main(argv):
         print(end_string)
         print(build_string)
         print(room_string)
-        print(dept_and_num_string)
+        # print(dept_and_num_string)
         print(area_string)
         print(title_string)
         print(desc_string)
