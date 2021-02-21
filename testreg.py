@@ -42,8 +42,8 @@ for count, area in enumerate(courseid):
         #     print(ourProg + "caused the problem")
         #     exit(1)
     print(count)
-    # if (count == 100):
-    #     break
+    if (count == 100):
+        break
 
 test_string = [
     "python reg.py",
@@ -114,8 +114,8 @@ for count,id in enumerate(classid):
     #     exit(1)
     system('rm -f ourFile refFile')
     print("-" + str(count))
-    # if (count == 100):
-    #     break
+    if (count == 100):
+        break
 
 if os.stat("result____").st_size == 0:
     print("Everything Looks Good!!!!")
