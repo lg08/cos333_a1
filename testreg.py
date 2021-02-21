@@ -23,18 +23,19 @@ cursor.close()
 
 connection.close()
 
+
 # # checks the different departments
-# for count, area in enumerate(courseid):
-#     for item in ['-d', '-t', '-n', '-a']:
-#         ourProg = 'python reg.py {} "{}"'.format(item, area[0])
-#         refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0])
-#         system(ourProg + ' &> ourFile')
-#         system(refProg + ' &> refFile')
-#         system('diff ourFile refFile >> result')
-#         system('rm -f ourFile refFile')
-#     print(count)
-#     if (count == 100):
-#         break
+for count, area in enumerate(courseid):
+    for item in ['-d', '-t', '-n', '-a']:
+        ourProg = 'python reg.py {} "{}"'.format(item, area[0] + "%")
+        refProg = 'python ref_reg.pyc {} "{}"'.format(item, area[0] + "%")
+        system(ourProg + ' &> ourFile')
+        system(refProg + ' &> refFile')
+        system('diff ourFile refFile >> result____')
+        system('rm -f ourFile refFile')
+    print(count)
+    if (count == 100):
+        break
 
 test_string = [
     "python reg.py",
@@ -81,18 +82,18 @@ for index, line in enumerate(test_string):
     print(str(index) + "*")
     system(line + ' &> ourFile')
     system(ref_string[index] + ' &> refFile')
-    system('diff -y ourFile refFile >> result')
+    system('diff ourFile refFile >> result____')
     system('rm -f ourFile refFile')
 
 
 
-# for count,id in enumerate(classid):
-#    ourProg = 'python regdetails.py {}'.format(id[0])
-#    refProg = 'python ref_regdetails.pyc {}'.format(id[0])
-#    system(ourProg + ' &> ourFile')
-#    system(refProg + ' &> refFile')
-#    system('diff ourFile refFile >> result_for_regdetails')
-#    system('rm -f ourFile refFile')
-#    print("-" + str(count))
-#    if (count == 100):
-#        break
+for count,id in enumerate(classid)
+   ourProg = 'python regdetails.py {}'.format(id[0])
+   refProg = 'python ref_regdetails.pyc {}'.format(id[0])
+   system(ourProg + ' &> ourFile')
+   system(refProg + ' &> refFile')
+   system('diff ourFile refFile >> result____')
+   system('rm -f ourFile refFile')
+   print("-" + str(count))
+   if (count == 100):
+       break
