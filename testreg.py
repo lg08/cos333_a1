@@ -32,6 +32,7 @@ for count, area in enumerate(courseid):
         system(refProg + ' > refFile')
         system('diff ourFile refFile >> result')
         system('rm -f ourFile refFile')
+    print(count)
     if (count == 100):
         break
 
@@ -43,5 +44,6 @@ for count,id in enumerate(classid):
    system(refProg + ' > refFile')
    system('diff ourFile refFile >> result')
    system('rm -f ourFile refFile')
+   print("-" + str(count))
    if (count == 100):
        break
