@@ -87,7 +87,7 @@ for index, line in enumerate(test_string):
 
 
 
-for count,id in enumerate(classid)
+for count,id in enumerate(classid):
    ourProg = 'python regdetails.py {}'.format(id[0])
    refProg = 'python ref_regdetails.pyc {}'.format(id[0])
    system(ourProg + ' &> ourFile')
