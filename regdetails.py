@@ -108,7 +108,9 @@ def main(argv):
 
 
         print(textwrap.fill(course_id_string, 72,
-                            replace_whitespace=False, break_long_words=False))
+                            replace_whitespace=False,
+                            break_long_words=False))
+        print()
         print(textwrap.fill(day_string, 72, replace_whitespace=False, break_long_words=False))
         print(textwrap.fill(start_string, 72,
                             replace_whitespace=False, break_long_words=False))
@@ -117,6 +119,7 @@ def main(argv):
                             replace_whitespace=False, break_long_words=False))
         print(textwrap.fill(room_string, 72, replace_whitespace=False,
                             break_long_words=False))
+        print()
         for line in dept_and_num_string:
             print(textwrap.fill(line, 72,
                                 replace_whitespace=False,
@@ -124,6 +127,7 @@ def main(argv):
         print()
         print(textwrap.fill(area_string, 72, replace_whitespace=False,
                             break_long_words=False))
+        print()
         print(textwrap.fill(title_string, 72,
                             replace_whitespace=False, break_long_words=False))
         print()
