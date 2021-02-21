@@ -15,13 +15,13 @@ def main(argv):
         description='Registrar application: show overviews of classes',
         allow_abbrev=False)
 
-    parser.add_argument('-d', nargs=1, metavar='dept', default='%',
+    parser.add_argument('-d', nargs=1, metavar='dept',
         help='show only those classes whose department contains dept')
-    parser.add_argument('-n', nargs=1, metavar='num', default='%',
+    parser.add_argument('-n', nargs=1, metavar='num',
         help='show only those classes whose course number contains num')
-    parser.add_argument('-a', nargs=1, metavar='area', default='%',
+    parser.add_argument('-a', nargs=1, metavar='area',
         help='show only those classes whose distrib area contains area')
-    parser.add_argument('-t', nargs=1, metavar='title', default='%',
+    parser.add_argument('-t', nargs=1, metavar='title',
         help='show only those classes whose course title contains title')
     args = parser.parse_args()
 
@@ -48,17 +48,33 @@ def main(argv):
 
         #assigning args to vars and 'escaping' wildcard characters
 
-        d = args.d[0].replace('_', '@_')
-        n = args.n[0].replace('_', '@_')
-        a = args.a[0].replace('_', '@_')
-        t = args.t[0].replace('_', '@_')
+        if args.d:
+            d = args.d[0].replace('_', '@_')
+        else:
+            d = ""
+
+        if args.n:
+            n = args.n[0].replace('_', '@_')
+        else:
+            n = ""
+
+        if args.a:
+            a = args.a[0].replace('_', '@_')
+        else:
+            a = ""
+
+        if args.t:
+            t = args.t[0].replace('_', '@_')
+        else:
+            t = ""
+
+
 
         d = d.replace('%', '@%')
         n = n.replace('%', '@%')
         a = a.replace('%', '@%')
         t = t.replace('%', '@%')
 
-        
         cursor.execute(select_string, [str("%" + d + "%"),
                                        str("%" + n + "%"),
                                        str("%" + a + "%"),
