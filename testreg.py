@@ -101,3 +101,4 @@ for count,id in enumerate(classid):
 
 if os.stat("result____").st_size == 0:
     print("Everything Looks Good!!!!")
+    system("rm -f result____")
