@@ -48,8 +48,8 @@ def main(argv):
         room_string = "Room: {}\n\n".format(row[5])
         area_string = "Area: {}\n\n".format(row[6])
         title_string ="Title: {}\n\n".format(row[7])
-        desc_string = "Description: {}\n\n".format(textwrap.fill(row[08], 72))
-        preq_string = "Prerequisites: {}\n\n".format(textwrap.fill(row[09]))
+        desc_string = "Description: {}\n\n".format(textwrap.fill(row[8], 72))
+        preq_string = "Prerequisites: {}\n\n".format(textwrap.fill(row[9]))
 
 
         # dept_and_num_string = "Dept and Number: {} {}\n".format(row[6], row[7])
