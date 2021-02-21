@@ -12,7 +12,7 @@ courseid = cursor.fetchall()
 cursor.close()
 connection.close()
 
-for count,area in enumerate(courseid):
+for count, area in enumerate(courseid):
     ourProg = 'python reg.py -d "{}"'.format(area[0])
     refProg = 'python ref_reg.pyc -d "{}"'.format(area[0])
     system(ourProg + ' > ourFile')
@@ -30,8 +30,3 @@ for count,area in enumerate(courseid):
 #    system(refProg + ' > refFile')
 #    system('diff ourFile refFile >> result')
 #    system('rm -f ourFile refFile')
-
-
-
-    
-
