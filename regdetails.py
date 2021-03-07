@@ -20,7 +20,7 @@ def main(argv):
     args = parser.parse_args()
 
     if not path.isfile(DATABASE_NAME):
-        print('database reg.sqlite not found', file=stderr)
+        print('%s: database reg.sqlite not found' % argv[0], file=stderr)
         exit(1)
 
     try:
@@ -40,6 +40,11 @@ def main(argv):
 
         row = cursor.fetchone()
 
+        if row is None:
+            print('%s: no such class id!' % argv[0], file=stderr)
+            exit(1)
+
+        
         course_id_string = "Course Id: {}\n".format(row[0])
         day_string = "Days: {}".format(row[1])
         start_string ="Start time: {}".format(row[2])
@@ -135,7 +140,7 @@ def main(argv):
         connection.close()
 
     except Exception as e:
-        print(e, file=stderr)
+        print('%s: ' % argv[0] + ' ' + e, file=stderr)
         exit(1)
 
 

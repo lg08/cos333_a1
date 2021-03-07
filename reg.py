@@ -26,7 +26,7 @@ def main(argv):
     args = parser.parse_args()
 
     if not path.isfile(DATABASE_NAME):
-        print('database reg.sqlite not found', file=stderr)
+        print('%s: database reg.sqlite not found' % argv[0], file=stderr)
         exit(1)
 
     try:
@@ -121,7 +121,7 @@ def main(argv):
         connection.close()
 
     except Exception as e:
-        print(e, file=stderr)
+        print('%s: ' % argv[0] + ' ' + e, file=stderr)
         exit(1)
 
 
